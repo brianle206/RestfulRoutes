@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+</head>
+<body>
+	{% for i in show %}
+		<h1>Product {{i.id}}</h1>
+		<p>Name: {{i.name}}</p>
+		<p>Description: {{i.description}}</p>
+		<p>Price: ${{i.price}}</p>
+		<a href='/products/edit/{{i.id}}'>Edit Here</a> | <a href='/'>Back</a>
+	{% endfor %}	
+
+	{% for i in edit %}
+		<h1>Edit Product {{i.id}}</h1>
+		<form action='/update/{{i.id}}' method='post'> 
+			Name:<br>
+			<input type='text' name='name'><br>
+			Description:<br>
+			<input type='text' name='description'><br>
+			Price:<br>
+			<input type='text' name='price'><br>
+			<button>Update</button>
+		</form>
+		<a href='/products/show/{{i.id}}'>Show</a> | <a href='/'>Back</a>
+	{% endfor %}
+		
+</body>
+</html>

@@ -1,0 +1,35 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="/static/css/styles.css" type="text/css">
+    <style type="text/css">
+		form{
+			display: inline-block;
+		}
+    </style>
+  </head>
+  <body>
+    <h1>Products</h1>
+    	<table style="width:100%">
+		<tr class="titles">
+			<td>Name</b></td>
+			<td>Description</td>
+			<td>Price</td>
+			<td>Actions</td>
+		</tr>
+		{% for i in product %}
+  		<tr>
+		    <td>{{i.name}}</td>
+		    <td>{{i.description}} </td> 
+		    <td>${{i.price}}</td>
+		    <td><a href='/products/show/{{i.id}}' name="delete">Show</a>
+		    <a href='/products/edit/{{i.id}}' name="delete">Edit</a>
+		    <form action='/products/destroy/{{i.id}}' method='post'>
+		    	<button>Remove</button>
+		    </form>
+		    </td>
+		</tr>
+		{% endfor %} 
+	</table>
+	<a href='/products/new'>Add a new product</a>
+  </body>
+</html>
